@@ -4,25 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib import admin
 
-class Room(models.Model):
-    room_name = models.CharField(max_length=25)
-    floor_name = models.CharField(max_length=25,default='Sotano')
-    modbus_id = models.IntegerField(default=0)
 
-    def __str__(self):              # __unicode__ on Python 2
-        return "%s"%(self.room_name) 
-        
-class Status(models.Model):
-    room = models.ForeignKey(Room)
-    ON = 'ON'
-    OFF = 'OFF'
-    STATUS_CHOICES=((ON, 'On'), (OFF, 'Off'))
-    
-    nivel_1 = models.CharField(max_length=3, choices=STATUS_CHOICES, default=OFF)
-    nivel_2 = models.CharField(max_length=3, choices=STATUS_CHOICES, default=OFF)
-    nivel_3 = models.CharField(max_length=3, choices=STATUS_CHOICES, default=OFF)
-    light   = models.CharField(max_length=3, choices=STATUS_CHOICES, default=OFF)
-    temperature = models.DecimalField(max_digits=6,decimal_places=2, default=0.0)
 
 class Administrator(models.Model):
     name=models.CharField(max_length=25)
