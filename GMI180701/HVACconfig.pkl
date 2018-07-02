@@ -1,0 +1,5 @@
+(lp0
+VEdificio ColdAir
+p1
+aI2
+a.
